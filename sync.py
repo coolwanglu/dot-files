@@ -13,6 +13,10 @@ import os
 import os.path
 
 IGNORE=['.git', '.svn']
+EPS=1.e-6
+
+AVAILABLE_COMMANDS=['update','list']
+COMMAND='update'
 
 class Updater():
     def relative_path(self, path):
@@ -27,15 +31,14 @@ class Updater():
         elif os.path.isdir(target):
             print rf, 'is a directory!'
         else:
-            ftime = os.path.getctime(f)
-            ttime = os.path.getctime(target)
+            ftime = os.path.getmtime(f)
+            ttime = os.path.getmtime(target)
 
-            if ftime < ttime:
+            if ftime < ttime-EPS:
                 shutil.copy2(target, f)
                 print rf, 'updated'
-            elif ftime > ttime:
+            elif ftime > ttime+EPS:
                 print rf, 'is newer than the one in the home dir!'
-                shutil.copy2(target, f)
             else:
                 pass
 
@@ -43,14 +46,21 @@ class Updater():
         for i in fnames:
             if i in IGNORE:
                 fnames.remove(i)
-        for i in fnames:
-            f = os.path.join(dirname, i)
-            if os.path.isfile(f):
-                self.update(f)
-            elif os.path.isdir(f):
-                continue #ignore
-            else:
-                print 'Unknown file type:', self.relative_path(f)
+        
+        if COMMAND == 'list':
+            print '[%s]'%(dirname,)
+            print ' '.join(fnames)
+            print
+
+        elif COMMAND == 'update':
+            for i in fnames:
+                f = os.path.join(dirname, i)
+                if os.path.isfile(f):
+                        self.update(f)
+                elif os.path.isdir(f):
+                    continue #ignore
+                else:
+                    print 'Unknown file type:', self.relative_path(f)
 
     def work(self):
         global IGNORE
@@ -62,9 +72,15 @@ class Updater():
 
         os.path.walk(self.work_dir, self.process, None)
 
+        print 'Done.'
+
 if __name__ == '__main__':
+    if len(sys.argv) > 1:
+        if sys.argv[1] not in AVAILABLE_COMMANDS:
+            print 'Unknown command: '. sys.argv[1]
+            sys.exit(-1)
+        
+        COMMAND = sys.argv[1]
     Updater().work()
-
-
 
 
