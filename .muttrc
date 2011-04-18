@@ -1,0 +1,143 @@
+# ~/.muttrc
+#
+# By WangLu
+#
+# Reference: https://github.com/redondos/mutt
+
+
+##############
+# Account
+
+set from = 'coolwanglu@gmail.com'
+#set realname = 'Lu Wang'
+set realname = '王璐'
+alternates `cat ~/.mutt/alternates`
+set reverse_name = yes
+set reverse_realname = no
+
+set imap_user = 'coolwanglu@gmail.com'
+set imap_pass = `gkeyring -1 -p user=coolwanglu,server=mail.google.com`
+set smtp_url = 'smtp://coolwanglu@smtp.gmail.com:587/'
+set smtp_pass = `gkeyring -1 -p user=coolwanglu,server=mail.google.com`
+
+unset imap_passive
+set imap_authenticators = 'cram-md5:gssapi:cram-sha256:cram-sha1:login'
+set imap_keepalive = 20
+unset imap_idle
+
+set ssl_starttls = yes
+set ssl_force_tls = yes
+set mail_check = 60
+set timeout = 10
+
+set folder = 'imaps://imap.gmail.com:993'
+set spoolfile = '+INBOX'
+set postponed = '+[Gmail]/Drafts'
+set trash = '+[Gmail]/Trash'
+set record = '' # gmail will handle sent mail
+
+###############
+# Path
+
+set header_cache = '~/.mutt/cache/headers'
+set message_cachedir = '~/.mutt/cache/bodies'
+set certificate_file = '~/.mutt/certificates'
+set smime_certificates = '~/.smime/certificates'
+set smime_keys = '~/.smime/keys'
+
+###############
+# Display
+set sort = 'threads'
+set sort_aux = 'last-date-received'
+
+set pager_context = 1
+set pager_index_lines = 13
+set net_inc = 5
+set read_inc = 100
+set write_inc = 100
+
+unset markers
+set nostrict_threads
+set pager_stop
+
+set forward_format = 'FW: %s'
+set date_format = '%a %F %T'
+
+#unset menu_move_off
+
+push <show-version>
+
+
+#############
+# Compose
+# set mime_forward
+unset reply_self
+set fast_reply
+
+set editor = 'vim + -c "set tabstop=2" -c "set textwidth=72" -c "set wrap" -c "/^$"'
+set edit_headers
+set sendmail_wait = -1
+
+set signature = '~/.mutt/signature.sh|'
+set sig_dashes = no
+set sig_on_top = yes
+
+#############
+# PGP sign
+set crypt_autopgp = yes
+#set crypt_autosign = yes
+set pgp_sign_as = 0xEABE8188
+set pgp_timeout = 3600
+
+###############
+# Misc
+
+set move = no
+set print = ask-yes
+set delete = ask-yes
+set quit = ask-yes
+
+set include
+set charset = 'utf-8'
+set assumed_charset = 'GBK:GB18030:shift_jis:utf-8'
+
+set nobeep
+set beep_new
+
+set alias_file = '~/.mutt/aliases'
+set sort_alias = 'alias'
+
+unset wait_key
+
+mime_lookup application/octet-stream
+mime_lookup text/plain
+alternative_order text/plain text/html
+
+###########################
+# Key bindings & Macro
+
+bind editor <space> noop
+bind index "x" noop
+bind index,pager "u" imap-fetch-mail
+bind index "G" last-entry
+bind index,pager "?" search-reverse
+bind index,pager "\e?" help
+#bind pager <space> half-down
+bind index,pager "+" create-alias
+bind index,pager "a" group-reply
+macro index,pager gi '<change-folder>=INBOX<enter>' 'Go to inbox'
+macro index,pager gs '<change-folder>=[Gmail]/Starred<enter>' 'Go to starred'
+macro index,pager gt '<change-folder>=[Gmail]/Sent Mail<enter>' 'Go to sent'
+macro index,pager gd '<change-folder>=[Gmail]/Drafts<enter>' 'Go to drafts'
+macro index,pager S '<save-message>=[Gmail]/Spam<enter>' 'Mark as spam'
+
+########################
+# Include others
+source $alias_file
+
+source `~/.mutt/choose_solarized_theme.sh`
+
+# items below are copied from https://github.com/redondos/mutt
+source ~/.mutt/autoview
+source ~/.mutt/headers
+
