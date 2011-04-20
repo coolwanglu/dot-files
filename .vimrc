@@ -20,11 +20,7 @@ filetype indent on
 
 " Background changed to transparent
 set background=dark
-if &t_Co == 256
-    let g:solarized_termcolors=256
-else
-    let g:solarized_termcolors=16
-endif
+"let g:solarized_termcolors=256 " Use this when the terminal is not using the Solarized theme
 let g:solarized_contrast="normal"
 let g:solarized_termtrans=1
 colorscheme solarized

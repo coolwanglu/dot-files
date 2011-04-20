@@ -74,7 +74,7 @@ push <show-version>
 unset reply_self
 set fast_reply
 
-set editor = 'vim + -c "set tabstop=2" -c "set textwidth=72" -c "set wrap" -c "/^$"'
+set editor = 'vim + -c "set tabstop=2" -c "set textwidth=72" -c "set shiftwidth=2" -c "set wrap" -c "/^$"'
 set edit_headers
 set sendmail_wait = -1
 
@@ -135,7 +135,8 @@ macro index,pager S '<save-message>=[Gmail]/Spam<enter>' 'Mark as spam'
 # Include others
 source $alias_file
 
-source `~/.mutt/choose_solarized_theme.sh`
+source ~/.mutt/mutt-colors-solarized-dark-16.muttrc
+# source ~/.mutt/mutt-colors-solarized-dark-256.muttrc # use this when the terminal is not using the Solarized theme
 
 # items below are copied from https://github.com/redondos/mutt
 source ~/.mutt/autoview

@@ -118,12 +118,12 @@ s0_filter_match = any
 [gnomecompat]
 as_main_menu_key = <Alt>F1
 as_run_key = <Alt>F2
-as_command_screenshot = gnome-screenshot
+as_command_screenshot = /usr/bin/shutter --full
 as_run_command_screenshot_key = Print
-as_command_window_screenshot = gnome-screenshot --window
+as_command_window_screenshot = /usr/bin/shutter --window
 as_run_command_window_screenshot_key = <Alt>Print
 as_command_terminal = gnome-terminal
-as_run_command_terminal_key = <Mod4>t
+as_run_command_terminal_key = Disabled
 
 [trailfocus]
 s0_window_match = (type=toolbar | type=utility | type=dialog | type=normal) & !(state=skiptaskbar | state=skippager)
@@ -582,7 +582,7 @@ as_ignore_match =
 
 [staticswitcher]
 as_next_button = Disabled
-as_next_key = Disabled
+as_next_key = <Alt>Tab
 as_prev_button = Disabled
 as_prev_key = <Shift><Alt>Tab
 as_next_all_button = Disabled

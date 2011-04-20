@@ -12,7 +12,7 @@ import sys
 import os
 import os.path
 
-IGNORE=['.git', '.svn']
+IGNORE=['.git', '.svn', 'README']
 EPS=1.e-6
 
 AVAILABLE_COMMANDS=['update','list']
