@@ -123,7 +123,7 @@ as_run_command_screenshot_key = Print
 as_command_window_screenshot = /usr/bin/shutter --window
 as_run_command_window_screenshot_key = <Alt>Print
 as_command_terminal = gnome-terminal
-as_run_command_terminal_key = Disabled
+as_run_command_terminal_key = <Mod4>t
 
 [trailfocus]
 s0_window_match = (type=toolbar | type=utility | type=dialog | type=normal) & !(state=skiptaskbar | state=skippager)

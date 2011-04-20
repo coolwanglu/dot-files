@@ -50,3 +50,5 @@ set winaltkeys=no
 au BufRead /tmp/mutt-* source ~/.vim/scripts/mutt-aliases.vim
 
 set number
+set go=
+set guifont=DejaVu\ Sans\ Mono\ 10
