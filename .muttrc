@@ -4,6 +4,10 @@
 #
 # Reference: https://github.com/redondos/mutt
 
+######
+# to clean mutt cache periodically, add to crontab
+# # clean mutt cache older than a week
+# @hourly find ~/.mutt/cache -mtime +7 -mindepth 2 -delete 
 
 ##############
 # Account
