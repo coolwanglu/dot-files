@@ -109,7 +109,6 @@ alias rm='rm -I'
 # for deb packing
 export EMAIL="WANG Lu <coolwanglu@gmail.com>"
 
-export LD_LIBRARY="/usr/local/lib"
 export EDITOR=vim
 export VISUAL=vim
 
