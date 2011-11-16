@@ -119,5 +119,5 @@ fi
 
 export PATH=~/bin:$PATH
 
-alias sshyikecpu5='ssh -Y luwang@yikecpu5.cse.ust.hk'
+alias sshyikecpu5='ssh -D1988 -Y luwang@yikecpu5.cse.ust.hk'
 alias mountyikecpu5='sshfs luwang@yikecpu5.cse.ust.hk: ~/yikecpu5'

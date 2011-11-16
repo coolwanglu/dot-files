@@ -61,13 +61,13 @@ set read_inc = 100
 set write_inc = 100
 
 unset markers
-set nostrict_threads
+set strict_threads
 set pager_stop
 
 set forward_format = 'FW: %s'
 set date_format = '%a %F %T'
 
-#unset menu_move_off
+unset menu_move_off
 
 push <show-version>
 

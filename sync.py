@@ -56,7 +56,7 @@ class Updater():
             for i in fnames:
                 f = os.path.join(dirname, i)
                 if os.path.isfile(f):
-                        self.update(f)
+                    self.update(f)
                 elif os.path.isdir(f):
                     continue #ignore
                 else:
