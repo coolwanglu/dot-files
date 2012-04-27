@@ -118,6 +118,7 @@ if [ "$TERM" == "xterm" ]; then
 fi
 
 export PATH=~/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/lib
 
 alias sshyikecpu5='ssh -D1988 -Y luwang@yikecpu5.cse.ust.hk'
 alias mountyikecpu5='sshfs luwang@yikecpu5.cse.ust.hk: ~/yikecpu5'
