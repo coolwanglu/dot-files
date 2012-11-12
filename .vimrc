@@ -27,13 +27,14 @@ filetype off
 set runtimepath+=~/.vim/bundle/vundle
 call vundle#rc()
 Bundle 'gmarik/vundle'
-Bundle 'Valloric/YouCompleteMe'
+"Bundle 'Valloric/YouCompleteMe'
 Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
 Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
 Bundle 'Solarized'
 "Bundle 'Syntastic'
 Bundle 'molokai'
 Bundle 'jQuery'
+Bundle 'derekwyatt/vim-scala'
 
 filetype plugin on
 filetype indent on
