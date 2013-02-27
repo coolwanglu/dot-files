@@ -29,9 +29,9 @@ filetype indent on
 " Background changed to transparent
 set background=dark
 "let g:solarized_termcolors=256 " Use this when the terminal is not using the Solarized theme
-let g:solarized_contrast="normal"
+let g:solarized_contrast="high"
 let g:solarized_termtrans=1
-let g:solarized_bold=0
+"let g:solarized_bold=0
 colorscheme solarized
 
 " for ubuntu

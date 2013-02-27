@@ -122,3 +122,5 @@ export LD_LIBRARY_PATH=/usr/local/lib
 
 alias sshyikecpu5='ssh -D1988 -Y luwang@yikecpu5.cse.ust.hk'
 alias mountyikecpu5='sshfs luwang@yikecpu5.cse.ust.hk: ~/yikecpu5'
+alias sshyikecpu6='ssh -D1988 -Y luwang@yikecpu6.cse.ust.hk'
+alias mountyikecpu6='sshfs luwang@yikecpu6.cse.ust.hk: ~/yikecpu6'
