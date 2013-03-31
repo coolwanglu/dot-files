@@ -22,6 +22,18 @@ autocmd Filetype cpp set omnifunc=cppcomplete#Complete
 
 syntax on
 
+" for vundle
+filetype off
+
+set runtimepath+=~/.vim/bundle/vundle
+call vundle#rc()
+
+" bundles
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
+Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
+"Bundle 'Solarized'
+
 filetype plugin on
 filetype indent on
 
@@ -34,8 +46,6 @@ filetype indent on
 "let g:solarized_bold=0
 colorscheme Darkside
 
-" for ubuntu
-set runtimepath+=/usr/share/vim/addons
 
 " for spelling check
 setlocal spell spelllang=en_us
@@ -56,15 +66,15 @@ set guifont=DejaVu\ Sans\ Mono\ Book\ 9
 set winaltkeys=no
 
 " for mutt alias auto completion
-au BufRead /tmp/mutt-* source ~/.vim/scripts/mutt-aliases.vim
+"au BufRead /tmp/mutt-* source ~/.vim/scripts/mutt-aliases.vim
 
 " using singlecompile
-nmap <F5> :SCCompileRun<CR>
+"nmap <F5> :SCCompileRun<CR>
 
 " for SingleCompile
-call SingleCompile#SetCompilerTemplate('scheme', 'mzscheme', 'mzscheme', 'mzscheme', '-r', '')
-call SingleCompile#SetCompilerTemplate('cpp', 'gcc with c++0x & openmp', 'gcc', 'g++', '--std=c++0x -fopenmp', './a.out')
-call SingleCompile#ChooseCompiler('cpp', 'gcc with c++0x & openmp')
+"call SingleCompile#SetCompilerTemplate('scheme', 'mzscheme', 'mzscheme', 'mzscheme', '-r', '')
+"call SingleCompile#SetCompilerTemplate('cpp', 'gcc with c++0x & openmp', 'gcc', 'g++', '--std=c++0x -fopenmp', './a.out')
+"call SingleCompile#ChooseCompiler('cpp', 'gcc with c++0x & openmp')
 
 " auto format upon ';' and '}' at the end of line
 function! WL_auto_format()
@@ -88,6 +98,6 @@ autocmd Filetype cpp imap } }<ESC>:call WL_auto_format()<CR>a
 
 
 " for easytags
-set tags=./tags
-let g:easytags_dynamic_files = 1
-let g:easytags_python_enabled = 1
+"set tags=./tags
+"let g:easytags_dynamic_files = 1
+"let g:easytags_python_enabled = 1
