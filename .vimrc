@@ -24,19 +24,22 @@ syntax on
 
 " for vundle
 filetype off
-
 set runtimepath+=~/.vim/bundle/vundle
 call vundle#rc()
-
-" bundles
+Bundle 'gmarik/vundle'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
 Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
-"Bundle 'Solarized'
+Bundle 'Solarized'
+"Bundle 'Syntastic'
+Bundle 'molokai'
+Bundle 'jQuery'
 
 filetype plugin on
 filetype indent on
 
+" For YCM
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 
 " Background changed to transparent
 "set background=dark
@@ -45,7 +48,9 @@ filetype indent on
 "let g:solarized_termtrans=1
 "let g:solarized_bold=0
 colorscheme Darkside
-
+" need a visible background for Pmenu
+" For DaskSide, I just copy the color of StatsLine here.
+hi Pmenu ctermfg=250 ctermbg=239 cterm=bold guifg=#bababa guibg=#4e4f50 gui=bold
 
 " for spelling check
 setlocal spell spelllang=en_us
@@ -70,7 +75,6 @@ set winaltkeys=no
 
 " using singlecompile
 "nmap <F5> :SCCompileRun<CR>
-
 " for SingleCompile
 "call SingleCompile#SetCompilerTemplate('scheme', 'mzscheme', 'mzscheme', 'mzscheme', '-r', '')
 "call SingleCompile#SetCompilerTemplate('cpp', 'gcc with c++0x & openmp', 'gcc', 'g++', '--std=c++0x -fopenmp', './a.out')
