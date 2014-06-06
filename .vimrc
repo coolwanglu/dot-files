@@ -29,7 +29,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 "Bundle 'Valloric/YouCompleteMe'
 Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
-Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
+Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
 Bundle 'Solarized'
 "Bundle 'Syntastic'
 Bundle 'molokai'
@@ -41,17 +41,21 @@ filetype indent on
 
 " For YCM
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+nnoremap  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Background changed to transparent
-"set background=dark
+set background=dark
+let g:solarized_termcolors=16
 "let g:solarized_termcolors=256 " Use this when the terminal is not using the Solarized theme
 "let g:solarized_contrast="high"
 "let g:solarized_termtrans=1
 "let g:solarized_bold=0
-colorscheme Darkside
+colorscheme solarized
+
+"colorscheme Darkside
 " need a visible background for Pmenu
 " For DaskSide, I just copy the color of StatsLine here.
-hi Pmenu ctermfg=250 ctermbg=239 cterm=bold guifg=#bababa guibg=#4e4f50 gui=bold
+"hi Pmenu ctermfg=250 ctermbg=239 cterm=bold guifg=#bababa guibg=#4e4f50 gui=bold
 
 " for spelling check
 setlocal spell spelllang=en_us
@@ -106,3 +110,7 @@ autocmd Filetype cpp imap } }<ESC>:call WL_auto_format()<CR>a
 "set tags=./tags
 "let g:easytags_dynamic_files = 1
 "let g:easytags_python_enabled = 1
+
+" highlight the parts that exceeds 80 letters
+"highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
+"match OverLength /\%81v.*/
