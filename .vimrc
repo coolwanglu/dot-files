@@ -24,7 +24,7 @@ syntax on
 
 " for vundle
 filetype off
-set runtimepath+=~/.vim/bundle/vundle
+set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 Bundle 'gmarik/vundle'
 "Bundle 'Valloric/YouCompleteMe'
@@ -34,7 +34,7 @@ Bundle 'Solarized'
 "Bundle 'Syntastic'
 Bundle 'molokai'
 Bundle 'jQuery'
-Bundle 'derekwyatt/vim-scala'
+"Bundle 'derekwyatt/vim-scala'
 
 filetype plugin on
 filetype indent on

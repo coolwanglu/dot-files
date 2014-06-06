@@ -43,10 +43,8 @@ class Updater():
                 pass
 
     def process(self, arg, dirname, fnames):
-        for i in fnames:
-            if i in IGNORE:
-                fnames.remove(i)
-        
+        fnames[:] = [i for i in fnames if i not in IGNORE]
+
         if COMMAND == 'list':
             print '[%s]'%(dirname,)
             print ' '.join(fnames)
